@@ -33,7 +33,7 @@
                 {
                     "type" : "git",
                     "url" : "https://gitlab.gnome.org/jwestman/blueprint-compiler",
-                    "tag" : "v0.6.0"
+                    "tag" : "v0.8.0"
                 }
             ]
         },
@@ -48,7 +48,7 @@
                 {
                     "type": "git",
                     "url": "https://codeberg.org/Bavarder/Bavarder.git",
-                    "tag": "0.2.1"
+                    "tag": "0.2.2"
                 }
             ]
         }
