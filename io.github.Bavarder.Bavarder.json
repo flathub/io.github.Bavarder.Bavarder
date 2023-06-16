@@ -28,12 +28,11 @@
         {
             "name" : "blueprint-compiler",
             "buildsystem" : "meson",
-            "cleanup": [ "*" ],
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/jwestman/blueprint-compiler",
-                    "tag" : "v0.8.0"
+                    "url" : "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
+                    "tag" : "v0.8.1"
                 }
             ]
         },
@@ -48,7 +47,7 @@
                 {
                     "type": "git",
                     "url": "https://codeberg.org/Bavarder/Bavarder.git",
-                    "tag": "0.2.3"
+                    "tag": "0.2.4"
                 }
             ]
         }
