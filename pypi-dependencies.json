@@ -22,6 +22,13 @@
                 },
                 {
                     "type": "file",
+                    "only-arches": ["aarch64"],
+                    "url": "https://files.pythonhosted.org/packages/9b/33/815c3a69b660c81447ba67b9cd7e54fc905caab2be34cc6b295a836f8b40/curl_cffi-0.5.6-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+                    "sha256": "00e8c83b0dfde19c3470e5a07350bc8124db11723ef4e6d346cd634bb30ebc42"
+                },
+                {
+                    "type": "file",
+                    "only-arches": ["x86_64"],
                     "url": "https://files.pythonhosted.org/packages/d1/6f/5d591a5628423af4598e2d6ff0861fcbc554cc259590fac9f97d9c984611/curl_cffi-0.5.6-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
                     "sha256": "7a9df9fabff038f1ac9e7e6f32b5edb5d8df8c2eec64f53f513de1766c17ffdb"
                 },
