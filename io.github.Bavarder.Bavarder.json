@@ -38,13 +38,14 @@
             "name": "libportal",
             "buildsystem": "meson",
             "config-opts": [
-                "-Dportal-tests=false",
-                "-Ddocs=false"
+                "-Ddocs=false",
+                "-Dvapi=false",
+                "-Dbackends=gtk4"
             ],
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/flatpak/libportal.git",
+                    "url": "https://github.com/flatpak/libportal",
                     "tag": "0.6"
                 }
             ]
