@@ -1,18 +1,17 @@
 {
-    "app-id" : "io.github.Bavarder.Bavarder",
-    "runtime" : "org.gnome.Platform",
-    "runtime-version" : "44",
-    "sdk" : "org.gnome.Sdk",
-    "command" : "bavarder",
-    "finish-args" : [
+    "app-id": "io.github.Bavarder.Bavarder",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "45",
+    "sdk": "org.gnome.Sdk",
+    "command": "bavarder",
+    "finish-args": [
         "--share=network",
         "--share=ipc",
         "--socket=fallback-x11",
         "--device=dri",
-        "--socket=wayland",
-        "--filesystem=xdg-config/gtk-4.0"
+        "--socket=wayland"
     ],
-    "cleanup" : [
+    "cleanup": [
         "/include",
         "/lib/pkgconfig",
         "/man",
@@ -23,31 +22,62 @@
         "*.la",
         "*.a"
     ],
-    "modules" : [
-        "pypi-dependencies.json",
+    "modules": [
         {
-            "name" : "blueprint-compiler",
-            "buildsystem" : "meson",
-            "sources" : [
+            "name": "blueprint-compiler",
+            "buildsystem": "meson",
+            "sources": [
                 {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
-                    "tag" : "v0.8.1"
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
+                    "tag": "v0.8.1"
                 }
             ]
         },
         {
-            "name" : "bavarder",
-            "builddir" : true,
-            "buildsystem" : "meson",
+            "name": "libportal",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Ddocs=false",
+                "-Dvapi=false",
+                "-Dbackends=gtk4"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/flatpak/libportal",
+                    "tag": "0.6"
+                }
+            ]
+        },
+        "pypi-dependencies.json",
+        {
+            "name": "gpt4all",
+            "buildsystem": "simple",
+            "build-commands": [
+                "cd gpt4all-backend/ && mkdir build && cd build && cmake .. && cmake --build . --parallel",
+                "cd gpt4all-bindings/python && pip wheel --no-deps -w dist . && ls && ls dist && pip3 install \"dist/gpt4all-1.0.8-py3-none-any.whl\" --verbose --exists-action=i --no-index --prefix=${FLATPAK_DEST}  --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/nomic-ai/gpt4all",
+                    "commit": "39acbc837816ea9c7673bfe5cf83aeaed95b2c5f"
+                }
+            ]
+        },
+        {
+            "name": "bavarder",
+            "builddir": true,
+            "buildsystem": "meson",
             "config-opts": [
                 "-Dbuildtype=release"
             ],
-            "sources" : [
+            "sources": [
                 {
                     "type": "git",
                     "url": "https://codeberg.org/Bavarder/Bavarder.git",
-                    "tag": "0.2.4"
+                    "tag": "1.0.0"
                 }
             ]
         }
