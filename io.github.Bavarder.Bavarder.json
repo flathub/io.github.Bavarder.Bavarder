@@ -25,17 +25,6 @@
   ],
   "modules": [
     {
-      "name": "blueprint-compiler",
-      "buildsystem": "meson",
-      "sources": [
-        {
-          "type": "git",
-          "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler.git",
-          "tag": "v0.20.4"
-        }
-      ]
-    },
-    {
       "name": "libportal",
       "buildsystem": "meson",
       "config-opts": [
